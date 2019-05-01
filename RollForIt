@@ -1,0 +1,59 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace myFirstApp
+{
+
+    /* Success in defining the GameRound class and implementing it in Main(). Yay!
+     * Next step is to read in a (delimited) array of: mod, min, max; and output an array of outcomes.
+     * Followed by reading in an array and computing a result for a single, specific record.*/
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            GameRound round1 = new GameRound();
+
+            int modifier = round1.GetModifier();
+
+            int roll = round1.RandomNumber();
+
+            int total = round1.ResolvePlay(modifier, roll);
+
+            Console.WriteLine("\nThe outcome is {0}.", total);
+            
+            Console.Read();
+        }
+
+    }
+
+    class GameRound
+    {
+        public int RandomNumber()
+        {
+            Console.WriteLine("\nEnter roll maximum: ");
+            int maxRoll = Convert.ToInt32(Console.ReadLine());
+
+            Random rand = new Random();
+            int roll = rand.Next(1, maxRoll);
+            return roll;
+        }
+
+        public int GetModifier()
+        {
+            Console.WriteLine("Enter modifier value: ");
+            int plrMod = Convert.ToInt32(Console.ReadLine());
+            return plrMod;
+
+        }
+
+        public int ResolvePlay(int plrMod, int plrRoll)
+        {
+            int result = plrMod + plrRoll;
+            return result;
+        }
+    }
+}
