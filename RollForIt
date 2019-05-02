@@ -55,10 +55,6 @@ namespace myFirstApp
 
         {
 
-           /* Console.WriteLine("\nEnter roll maximum: ");
-
-            int maxRoll = Convert.ToInt32(Console.ReadLine());
-            */
             Random rand = new Random();
 
             int roll = rand.Next(1, maxRoll);
@@ -66,25 +62,6 @@ namespace myFirstApp
             return roll;
 
         }
-
-
-
-        public int GetModifier()
-
-        {
-
-            Console.WriteLine("Enter modifier value: ");
-
-            int plrMod = Convert.ToInt32(Console.ReadLine());
-
-            return plrMod;
-
-
-
-        }
-
-
-
         public int ResolvePlay(int plrMod, int plrRoll)
 
         {
