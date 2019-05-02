@@ -26,55 +26,39 @@ namespace myFirstApp
 
         {
 
-            /*GameRound round1 = new GameRound();
-
-
-
-            int modifier = round1.GetModifier();
-
-
-
-            int roll = round1.RandomNumber();
-
-
-
-            int total = round1.ResolvePlay(modifier, roll);
-
-
-
-            Console.WriteLine("\nThe outcome is {0}.", total);
-            */
-
             Player playerA = new Player();
 
-            string plrTame = playerA.GetTeam();
+            string plrName = playerA.GetName();
+            string plrTeam = playerA.GetTeam();
+            int plrSkill = playerA.GetSkill();
+            int plrMod = playerA.GetModifier();
 
-            Console.WriteLine("\nPlayer team: {0}", plrTame);
+            GameRound round1 = new GameRound();
+
+            int roll = round1.RandomNumber(plrSkill);
+
+            int total = round1.ResolvePlay(roll, plrMod);
+
+            Console.WriteLine("\nPlay outcome for {0} ({1}) is {2}.", plrName, plrTeam, total);
 
             Console.Read();
-
         }
 
 
-
     }
-
-
 
     class GameRound
 
     {
 
-        public int RandomNumber()
+        public int RandomNumber(int maxRoll)
 
         {
 
-            Console.WriteLine("\nEnter roll maximum: ");
+           /* Console.WriteLine("\nEnter roll maximum: ");
 
             int maxRoll = Convert.ToInt32(Console.ReadLine());
-
-
-
+            */
             Random rand = new Random();
 
             int roll = rand.Next(1, maxRoll);
@@ -119,28 +103,28 @@ namespace myFirstApp
         int playerSkill, playerModifier;
         public string GetName()
         {
-            Console.WriteLine("Enter player name: ");
+            Console.WriteLine("\nEnter player name: ");
             string playerName = Console.ReadLine();
             return playerName;
         }
 
         public string GetTeam()
         {
-            Console.WriteLine("Enter player team: ");
+            Console.WriteLine("\nEnter player team: ");
             string playerTeam = Console.ReadLine();
             return playerTeam;
         }
 
         public int GetSkill()
         {
-            Console.WriteLine("Enter player skill: ");
+            Console.WriteLine("\nEnter player skill: ");
             int playerSkill = Convert.ToInt32(Console.ReadLine());
             return playerSkill;
         }
 
         public int GetModifier()
         {
-            Console.WriteLine("Enter player modifier: ");
+            Console.WriteLine("\nEnter player modifier: ");
             int playerModifier = Convert.ToInt32(Console.ReadLine());
             return playerModifier;
         }
